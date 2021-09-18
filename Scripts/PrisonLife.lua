@@ -11,6 +11,26 @@ MainSection:NewDropdown("Give Gun", "Gives the localplayer a gun", {"M9", "Remin
     Event:InvokeServer(A_1)
 end)
 
+MainSection:NewDropdown("Change Team", "Changes you Team", {"Inmate", "N/A", "Police", "Criminal"}, function(v)
+    if v == "Police" then
+        Workspace.Remote.TeamEvent:FireServer("Bright blue")
+    end
+if v == "Criminal" then
+    LP = game.Players.LocalPlayer
+
+RE = LP.Character.HumanoidRootPart.Position
+LP.Character.HumanoidRootPart.CFrame = CFrame.new(-919.958, 95.327, 2138.189)
+wait(0.075)
+LP.Character.HumanoidRootPart.CFrame = CFrame.new(RE)
+end
+if v == "N/A" then
+    Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+end
+if v == "Inmate" then
+    Workspace.Remote.TeamEvent:FireServer("Bright orange")
+end
+end)
+
 MainSection:NewDropdown("Gun Mod", "Makes the gun op", {"M9", "Remington 870", "AK-47"}, function(v)
     local module = nil
     if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v) then
