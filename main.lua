@@ -10,6 +10,7 @@ local Placeholder = Instance.new("Frame")
 local Gamename = Instance.new("TextLabel")
 local Tpbutton = Instance.new("TextButton")
 local UIListLayout = Instance.new("UIListLayout")
+local Vip = _G.Vip
 --Properties:
 Loader.Name = "Loader"
 Loader.Parent = game.CoreGui
@@ -241,12 +242,20 @@ function SCRIPT_VJWK69_FAKESCRIPT() -- LoadButton.Loader
 			end
 	end
 	if checkgame() then
-		script.Parent.Parent.gamename.Text = lit.gname
-		script.Parent.MouseButton1Down:Connect(function()
-			loadstring(game:HttpGet(string.format("https://raw.githubusercontent.com/DriftLeaks/Death-Hub/main/Scripts/%s", lit.scriptname)))()
-			script.Parent.Parent.Parent:Destroy()
-		end)
-	else
+        if Vip == true then
+            script.Parent.Parent.gamename.Text = lit.gname.." - Vip"
+            script.Parent.MouseButton1Down:Connect(function()
+                loadstring(game:HttpGet(string.format("https://raw.githubusercontent.com/DriftLeaks/Death-Hub/main/Scripts/%s", lit.scriptname)))()
+                script.Parent.Parent.Parent:Destroy()
+            end)
+        else
+            script.Parent.Parent.gamename.Text = lit.gname
+            script.Parent.MouseButton1Down:Connect(function()
+                loadstring(game:HttpGet(string.format("https://raw.githubusercontent.com/DriftLeaks/Death-Hub/main/Scripts/%s", lit.scriptname)))()
+                script.Parent.Parent.Parent:Destroy()
+            end)
+        end
+    else
 		script.Parent.Parent.gamename.Text = "Not supported"
 		script.Parent.Text = "List games"
 		script.Parent.MouseButton1Down:Connect(function()
@@ -263,6 +272,5 @@ function SCRIPT_VJWK69_FAKESCRIPT() -- LoadButton.Loader
 			end
 		end)
 	end
-
-end
+    end
 coroutine.resume(coroutine.create(SCRIPT_VJWK69_FAKESCRIPT))
