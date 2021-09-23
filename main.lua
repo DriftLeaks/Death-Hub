@@ -245,7 +245,7 @@ function SCRIPT_VJWK69_FAKESCRIPT() -- LoadButton.Loader
         if Vip == true then
             script.Parent.Parent.gamename.Text = lit.gname.." - Vip"
             script.Parent.MouseButton1Down:Connect(function()
-                loadstring(game:HttpGet(string.format("https://raw.githubusercontent.com/DriftLeaks/Death-Hub/main/Scripts/%s", lit.scriptname)))()
+                loadstring(game:HttpGet(string.format("https://raw.githubusercontent.com/DriftLeaks/Death-Hub/main/Scripts/Vip/%s", lit.scriptname)))()
                 script.Parent.Parent.Parent:Destroy()
             end)
         else
