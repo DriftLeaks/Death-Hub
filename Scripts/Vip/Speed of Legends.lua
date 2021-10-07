@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Speed of Legends", "Ocean")
+local Window = Library.CreateLib("Speed of Legends", "BloodTheme")
 
 -- MAIN
 local Main = Window:NewTab("Main")
