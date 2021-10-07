@@ -1,5 +1,5 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/DriftLeaks/Death-Hub/main/Library.lua"))()
-local Window = Library.CreateLib("Prison Life", "Ocean")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Prison Life", "BloodTheme")
 
 -- MAIN
 local Main = Window:NewTab("Main")
@@ -51,10 +51,11 @@ MainSection:NewDropdown("Gun Mod", "Makes the gun op", {"M9", "Remington 870", "
     end
 end)
 
-MainSection:NewButton("Fly Car", "Fly with a Car", function()
-    local hint = Instance.new("Hint",game.Players.LocalPlayer.PlayerGui)
-    hint.Text = "Press Z To Toggle"
-    hint.Name = game.JobId
+MainSection:NewButton("Fly", "You can Fly or Fly with a Car", function()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Info:";
+        Text = "Press Z to Toggle";
+        })
  repeat wait()
      until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
  local mouse = game.Players.LocalPlayer:GetMouse()
@@ -147,7 +148,7 @@ MainSection:NewButton("Fly Car", "Fly with a Car", function()
     end)
     end)
 
-MainSection:NewDropdown("Arrest ", "Arrest the teams Players", {"Criminals", "Inmater"}, function(v)
+MainSection:NewDropdown("Arrest ", "Arrest the teams Players", {"Criminals", "Inmates"}, function(v)
     if v == "Criminals" then
         local Player = game.Players.LocalPlayer
         local cpos = Player.Character.HumanoidRootPart.CFrame
@@ -195,7 +196,7 @@ PlayerSection:NewSlider("Jumppower", "Changes the jumppower", 250, 50, function(
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
 end)
 
-local Teleports = Window.NewTab("Teleports")
+local Teleports = Window:NewTab("Teleports")
 local TeleportsSection = Teleports:NewSection("Teleports")
 
 TeleportsSection:NewDropdown("Teleport to", "Teleports you", {"Police Room", "Prison Cells", "Crime Base"}, function(v)
@@ -214,3 +215,12 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Info:";
     Text = "Succesfully Loaded Gui";
     })
+
+
+local Others = Window:NewTab("Others")
+local OthersSection = Others:NewSection("Others")
+
+OthersSection:NewTextBox("Teleport to a Player", "Teleports you to a Player", function(txt)
+	print(txt)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[txt].Character.HumanoidRootPart.CFrame
+end)
