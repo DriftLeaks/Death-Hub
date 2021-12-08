@@ -865,7 +865,7 @@ function Luminosity.new(Name, Header, Icon)
             Size = UDim2.new(0, 700, 0, 475),
             ZIndex = 0,
             ClipsDescendants = true,
-            Image = "",
+            Image = "rbxassetid://3570695787",
             ImageColor3 = Color3.fromRGB(50, 53, 59),
             ScaleType = Enum.ScaleType.Slice,
             SliceCenter = Rect.new(100, 100, 100, 100),
@@ -1539,7 +1539,6 @@ function Luminosity.new(Name, Header, Icon)
         elseif Index == "Header" then
             Main.SideBar.Info.Header.Text = Value and tostring(Value) or "v1.0.0"
         elseif Index == "Icon" then
-            Main.SideBar.Info.Logo.Image = Value and "rbxassetid://" .. tostring(Value) or "rbxassetid://4370345701"
         end
         rawset(Self, Index, Value)
     end})
