@@ -865,7 +865,7 @@ function Luminosity.new(Name, Header, Icon)
             Size = UDim2.new(0, 700, 0, 475),
             ZIndex = 0,
             ClipsDescendants = true,
-            Image = "rbxassetid://3570695787",
+            Image = "",
             ImageColor3 = Color3.fromRGB(50, 53, 59),
             ScaleType = Enum.ScaleType.Slice,
             SliceCenter = Rect.new(100, 100, 100, 100),
